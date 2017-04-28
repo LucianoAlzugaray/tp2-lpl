@@ -1,9 +1,9 @@
+#include <stdlib.h>
 #include "swap.h"
 
-int swapInt(int *pa, int *pb){
-	printf("pa: %p, pb: %p\n", pa, pb);
+void swapInt(int *pa, int *pb){
 	int aux;
-	paux = *pb;
+	aux = *pb;
 	*pb = *pa;
 	*pa = aux;
 	

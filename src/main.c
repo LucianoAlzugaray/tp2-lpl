@@ -8,16 +8,16 @@
 #include "swap.h"
 #include "unitTest.h"
 
+#define CANT_PRUEBAS 2
+
 /* DECLARACIONS DE FUNCIONES */
 int pruebaSwapInt();
 int pruebaSwap();
 
-tPrueba pruebas[] = {&pruebaSwapInt,&pruebaSwap};
-
-int cantPruebas = 2;
+tPrueba pruebas[CANT_PRUEBAS] = {pruebaSwapInt, pruebaSwap};
 
 int main(int argc, char argv[]){
-	unitTest(pruebas, cantPruebas);	
+	unitTest(pruebas, CANT_PRUEBAS);	
 }
 
 int pruebaSwapInt(){
@@ -33,9 +33,11 @@ int pruebaSwapInt(){
 }
 
 int pruebaSwap(){
-	struct Estructura a{ int x = 5, int y = 10};
-	struct Estructura b{ int x = 40, int y = 30};
+	struct Estructura {int x; int y; };
 	
+	struct Estructura a = { 5, 10};
+	struct Estructura b = { 40, 30};
+
 	swap(&a, &b, sizeof(struct Estructura));
 
 	if((a.x == 40) && (b.x == 5) && (a.y == 30) && (b.y == 10))

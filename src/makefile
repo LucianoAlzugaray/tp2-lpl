@@ -2,10 +2,10 @@ IDIR =../include
 CC=gcc
 CFLAGS=-I$(IDIR)
 
-ODIR=obj
+ODIR=../bin
 LDIR =../lib
 
-LIBS=-lm
+LIBS=
 
 _DEPS = swap.h unitTest.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))

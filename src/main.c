@@ -6,31 +6,18 @@
 
 #include <stdio.h>
 #include "swap.h"
-
-/* DEFINICIONES */
-#define PUNTO_CORRECTO 1
-#define PUNTO_INCORRECTO 0
-
-typedef int (*tPrueba)();
+#include "unitTest.h"
 
 /* DECLARACIONS DE FUNCIONES */
 int pruebaSwapInt();
 int pruebaSwap();
 
-tPrueba pruebas[] = {pruebaSwapInt,pruebaSwap};
+tPrueba pruebas[] = {&pruebaSwapInt,&pruebaSwap};
 
 int cantPruebas = 2;
 
 int main(int argc, char argv[]){
-	int i;
-	for (i = 0; i < cantPruebas; i++){
-		int (*prueba)(void);
-		prueba = pruebas[i];
-		if(prueba() == PUNTO_CORRECTO)
-			printf("¡Punto %d correcto!\n", i + 1);
-		else
-			printf("¡Punto %d incorrecto! REHACER\n", i + 1);
-	}
+	unitTest(pruebas, cantPruebas);	
 }
 
 int pruebaSwapInt(){

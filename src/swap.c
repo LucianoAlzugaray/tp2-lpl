@@ -18,3 +18,10 @@ void swap(void *a, void *b, size_t len){
         q[i] = tmp;
     }
 }
+
+void swapPointer(void **pa, void **pb){
+    void *paux;
+    paux = *pb;
+    *pb = *pa;
+    *pa = paux;
+}

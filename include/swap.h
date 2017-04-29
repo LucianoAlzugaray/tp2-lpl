@@ -7,3 +7,4 @@
 
 void swapInt(int *, int *);
 void swap(void *, void *, size_t);
+void swapPointer(void **pa, void **pb);
